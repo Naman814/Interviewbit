@@ -1,0 +1,8 @@
+
+/*
+Lets say performOps was called with A : [5, 10, 2, 1].
+What would be the output of the following call :
+
+output : 5 10 2 1 5 1 2 10
+
+*/
