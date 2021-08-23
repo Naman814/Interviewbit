@@ -5,18 +5,27 @@ vector<int> compute_lps(const string &A)
     int n = A.size();
     vector<int> lps(n);
     lps[0] = 0;
-    for (int i = 1; i < n; i++)
+    int len = 0, i = 1;
+    while (i < n)
     {
-        int j = lps[i - 1];
-        while (j > 0 && A[i] != A[j])
+        if (A[i] == A[len])
         {
-            j = lps[j - 1];
+            len++;
+            lps[i] = len;
+            i++;
         }
-        if (A[i] == A[j])
+        else
         {
-            j++;
+            if (len != 0)
+            {
+                len = lps[len - 1];
+            }
+            else
+            {
+                lps[i] = 0;
+                i++;
+            }
         }
-        lps[i] = j;
     }
     return lps;
 }
